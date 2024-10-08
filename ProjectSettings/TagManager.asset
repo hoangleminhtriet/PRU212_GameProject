@@ -41,9 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: nen_dat
+  - name: Player
     uniqueID: 1027089199
     locked: 0
-  - name: wall
+  - name: Enemy
     uniqueID: 174852109
     locked: 0
