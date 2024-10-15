@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScrips : MonoBehaviour
 {
@@ -8,6 +10,11 @@ public class PlayerScrips : MonoBehaviour
     private float vertical;
     private float speed = 4.0f;
     Rigidbody2D rb;
+
+
+    public Text expText;
+
+    public int experience = 0;
 
     public bool turnedLeft = false;
     void Start()
@@ -39,5 +46,11 @@ public class PlayerScrips : MonoBehaviour
         {
             GetComponent<Animator>().Play("Down");
         }
+    }
+
+    public void GainExperience(int amount)
+    {
+        experience += amount;
+        expText.text = experience.ToString();
     }
 }
