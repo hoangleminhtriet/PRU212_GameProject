@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger2D : MonoBehaviour
 {
 	// Tên của scene bạn muốn load
-	public string Map2;
+	public string SceneLevel;
 
 	// Hàm này sẽ được gọi khi một đối tượng khác va chạm với Trigger Collider 2D
 	private void OnTriggerEnter2D(Collider2D other)
@@ -13,7 +13,7 @@ public class SceneChanger2D : MonoBehaviour
 		if (other.CompareTag("Player"))
 		{
 			// Chuyển scene
-			SceneManager.LoadScene(Map2);
+			SceneManager.LoadScene(SceneLevel);
 		}
 	}
 }
