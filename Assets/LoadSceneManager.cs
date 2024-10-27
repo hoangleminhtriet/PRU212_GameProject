@@ -9,8 +9,8 @@ public class LoadSceneManager : MonoBehaviour
     public static LoadSceneManager instance;
     [SerializeField]private Action callback;
     [Range(0f, 1f)]
-    public float sampleWait = 0.5f;
-    private float timeWait = 5f;
+    public float sampleWait = 0.1f;
+    private float timeWait = 0.1f;
     public float progress;
 
 
@@ -23,16 +23,14 @@ public class LoadSceneManager : MonoBehaviour
     {
         StopCoroutine(nameof(LoadSceneProgress));
         this.callback = callback;
-       
             StartCoroutine(nameof(LoadSceneProgress), sceneName);
-        
     }
 
     IEnumerator LoadSceneProgress(string sceneName)
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
         float timeCount = 0;
-        bool isDone = false;
+        bool isDone = true;
         progress = 0;
         while (!isDone)
         {
