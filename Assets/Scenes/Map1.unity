@@ -60146,6 +60146,11 @@ PrefabInstance:
       propertyPath: MessageOpen
       value: 
       objectReference: {fileID: 1474198405}
+    - target: {fileID: 5631353017090129003, guid: 0b396bb3be3df1249b5d9666846cf367,
+        type: 3}
+      propertyPath: gameManagerScript
+      value: 
+      objectReference: {fileID: 129277006}
     - target: {fileID: 6607985228707224085, guid: 0b396bb3be3df1249b5d9666846cf367,
         type: 3}
       propertyPath: m_LocalScale.x
