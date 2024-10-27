@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 174852109
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 321216773, guid: 17509205791741740a20ede8d98abed8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -213,6 +213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
+  deathVFXPrefab: {fileID: 1088020048374181824, guid: d29a649d7849c4249af34e552fb317d1,
+    type: 3}
 --- !u!114 &5451939571154792990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5560c4c26c7fa084ca804fb03c9277fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackTime: 0.2
+  knockBackTime: 0.2
 --- !u!114 &5469222887472162035
 MonoBehaviour:
   m_ObjectHideFlags: 0
