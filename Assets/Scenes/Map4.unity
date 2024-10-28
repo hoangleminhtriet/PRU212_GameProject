@@ -44412,6 +44412,7 @@ MonoBehaviour:
   - {fileID: 1427689362}
   - {fileID: 361579484}
   totalEnemy: 0
+  currentLevel: 0
   enemyParent: {fileID: 0}
 --- !u!1 &1288485559
 GameObject:
@@ -44475,7 +44476,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.2255359
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -44500,7 +44501,7 @@ Transform:
   m_GameObject: {fileID: 1288485559}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.6624403, y: -12.100454, z: -8.2177105}
+  m_LocalPosition: {x: -0.5292225, y: -8.773205, z: -8.2177105}
   m_LocalScale: {x: 1.4625, y: 2.4806252, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44597,7 +44598,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1425901020}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 3.2255359
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
