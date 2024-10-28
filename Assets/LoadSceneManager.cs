@@ -14,11 +14,7 @@ public class LoadSceneManager : MonoBehaviour
     private float timeWait = 0.1f;
 =======
     public float sampleWait = 0.5f;
-<<<<<<< Updated upstream
     private float timeWait = 0.5f;
->>>>>>> Stashed changes
-=======
-    private float timeWait = 1f;
 >>>>>>> Stashed changes
     public float progress;
 
@@ -50,7 +46,7 @@ public class LoadSceneManager : MonoBehaviour
         {
             if (timeCount < timeWait)
             {
-                timeCount += 0.1f;
+                timeCount += 0.01f;
                 progress = (timeCount / timeWait) * sampleWait;
                 yield return new WaitForSeconds(0.01f);
             }
