@@ -60991,8 +60991,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 73dbdd14a9b0f22419155b56e5fc2084,
+      objectReference: {fileID: 21300000, guid: b5429ace70f610647bea804647617017,
         type: 3}
+    - target: {fileID: 2546739437479169877, guid: a554fc2aa0b77ca42ba9f68d20cd585f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.26280072
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546739437479169877, guid: a554fc2aa0b77ca42ba9f68d20cd585f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546739437479169877, guid: a554fc2aa0b77ca42ba9f68d20cd585f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.26226407
+      objectReference: {fileID: 0}
     - target: {fileID: 2546739437479169877, guid: a554fc2aa0b77ca42ba9f68d20cd585f,
         type: 3}
       propertyPath: m_Maskable
@@ -61124,7 +61139,8 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5760134914101370831, guid: a554fc2aa0b77ca42ba9f68d20cd585f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a554fc2aa0b77ca42ba9f68d20cd585f, type: 3}
