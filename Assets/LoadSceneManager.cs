@@ -9,13 +9,8 @@ public class LoadSceneManager : MonoBehaviour
     public static LoadSceneManager instance;
     [SerializeField]private Action callback;
     [Range(0f, 1f)]
-<<<<<<< Updated upstream
     public float sampleWait = 0.1f;
     private float timeWait = 0.1f;
-=======
-    public float sampleWait = 0.5f;
-    private float timeWait = 0.5f;
->>>>>>> Stashed changes
     public float progress;
 
 
@@ -28,12 +23,7 @@ public class LoadSceneManager : MonoBehaviour
     {
         StopCoroutine(nameof(LoadSceneProgress));
         this.callback = callback;
-<<<<<<< Updated upstream
             StartCoroutine(nameof(LoadSceneProgress), sceneName);
-=======
-        StartCoroutine(nameof(LoadSceneProgress), sceneName);
-        
->>>>>>> Stashed changes
     }
 
     IEnumerator LoadSceneProgress(string sceneName)
