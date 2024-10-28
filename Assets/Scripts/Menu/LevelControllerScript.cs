@@ -10,6 +10,7 @@ public class LevelControllerScript : MonoBehaviour
 	public static LevelControllerScript instance;
 	public List<GameObject> enemys;
 	public int totalEnemy;
+	public int currentLevel;
 	public Transform enemyParent;
 	private void Awake()
 	{
@@ -22,5 +23,9 @@ public class LevelControllerScript : MonoBehaviour
 	public int CurrentEnemy()
 	{
 		return enemyParent.childCount;
+	}
+	public int CurrentLevel()
+	{
+		return currentLevel;
 	}
 }
