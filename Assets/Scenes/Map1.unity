@@ -60198,9 +60198,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1baba565915ad4d47af9201da6bd40af, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.69
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -60211,7 +60211,7 @@ AudioSource:
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
-  BypassListenerEffects: 0
+  BypassListenerEffects: 1
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
@@ -61193,6 +61193,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1136507930}
     m_Modifications:
+    - target: {fileID: 1673857880757965317, guid: 220abab31ad1964479b0e7941983b30b,
+        type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1baba565915ad4d47af9201da6bd40af, type: 3}
+    - target: {fileID: 1673857880757965317, guid: 220abab31ad1964479b0e7941983b30b,
+        type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c395852f91723774287d62eb2e69e2af, type: 3}
     - target: {fileID: 2643643061136078299, guid: 220abab31ad1964479b0e7941983b30b,
         type: 3}
       propertyPath: m_Name
