@@ -2,53 +2,68 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 3;
-    [SerializeField] private float knockBackThrustAmount = 10f;
-    [SerializeField] private float damageRecoveryTime = 1f;
+	public float MaxHealth;
+	[SerializeField] private float knockBackThrustAmount = 10f;
+	[SerializeField] private float damageRecoveryTime = 1f;
 
-    private int currentHealth;
-    private bool canTakeDamage = true;
-    private Knockback knockback;
-    private Flash flash;
+	public float CurrentHealth;
+	private bool canTakeDamage = true;
+	private Knockback knockback;
+	private Flash flash;
 
-    private void Awake()
-    {
-        flash = GetComponent<Flash>();
-        knockback = GetComponent<Knockback>();
-    }
+	public Image healthBar;
 
-    private void Start()
-    {
-        currentHealth = maxHealth;
-    }
+	private void Awake()
+	{
+		flash = GetComponent<Flash>();
+		knockback = GetComponent<Knockback>();
+		CurrentHealth = MaxHealth;
+	}
 
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
+	private void Start()
+	{
 
-        if (enemy)
-        {
-            TakeDamage(1, other.transform);
-        }
-    }
+	}
 
-    public void TakeDamage(int damageAmount, Transform hitTransform)
-    {
-        if (!canTakeDamage) { return; }
+	private void Update()
+	{
+		UpdateHealthBar();
+	}
 
-        knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
-        StartCoroutine(flash.FlashRoutine());
-        canTakeDamage = false;
-        currentHealth -= damageAmount;
-        StartCoroutine(DamageRecoveryRoutine());
-    }
+	private void OnCollisionStay2D(Collision2D other)
+	{
+		EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
 
-    private IEnumerator DamageRecoveryRoutine()
-    {
-        yield return new WaitForSeconds(damageRecoveryTime);
-        canTakeDamage = true;
-    }
+		if (enemy)
+		{
+			TakeDamage(1, other.transform);
+		}
+	}
+
+	public void TakeDamage(int damageAmount, Transform hitTransform)
+	{
+		if (!canTakeDamage) { return; }
+
+		knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
+		StartCoroutine(flash.FlashRoutine());
+		canTakeDamage = false;
+		CurrentHealth -= damageAmount;
+		StartCoroutine(DamageRecoveryRoutine());
+	}
+
+	private IEnumerator DamageRecoveryRoutine()
+	{
+		yield return new WaitForSeconds(damageRecoveryTime);
+		canTakeDamage = true;
+	}
+
+	void UpdateHealthBar()
+	{
+		healthBar.fillAmount = CurrentHealth / MaxHealth;
+	}
 }
