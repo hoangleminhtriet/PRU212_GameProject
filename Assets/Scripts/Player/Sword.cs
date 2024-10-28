@@ -15,6 +15,7 @@ public class Sword : MonoBehaviour
     private Playercontroller playercontroller;
     private ActiveWeapon activeWeapon;
     private bool attackButtonDown, isAttacking = false;
+    private SwordAudio swordAudio;
 
     private GameObject slashAnim;
 
@@ -25,6 +26,7 @@ public class Sword : MonoBehaviour
         activeWeapon = GetComponentInParent<ActiveWeapon>();
         myAnimator = GetComponent<Animator>();
         playerController = new PlayerController();
+        swordAudio = GetComponent<SwordAudio>();
     }
 
     private void OnEnable()
@@ -60,6 +62,10 @@ public class Sword : MonoBehaviour
             isAttacking = true;
             myAnimator.SetTrigger("Attack");
             weaponCollider.gameObject.SetActive(true);
+            if (swordAudio != null)
+            {
+                swordAudio.PlaySwordSwingSound();
+            }
             slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
             slashAnim.transform.parent = this.transform.parent;
             StartCoroutine(AttackCDRoutine());
