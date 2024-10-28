@@ -2,27 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 3;
+    public float MaxHealth;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
 
-    private int currentHealth;
+    public float CurrentHealth;
     private bool canTakeDamage = true;
     private Knockback knockback;
     private Flash flash;
+
+    public Image healthBar;
 
     private void Awake()
     {
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
+        CurrentHealth = MaxHealth;
     }
 
     private void Start()
     {
-        currentHealth = maxHealth;
+
+    }
+
+    private void Update()
+    {
+        UpdateHealthBar();
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -42,7 +52,7 @@ public class PlayerHealth : MonoBehaviour
         knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
-        currentHealth -= damageAmount;
+        CurrentHealth -= damageAmount;
         StartCoroutine(DamageRecoveryRoutine());
     }
 
@@ -50,5 +60,10 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(damageRecoveryTime);
         canTakeDamage = true;
+    }
+
+    void UpdateHealthBar()
+    {
+        healthBar.fillAmount = CurrentHealth / MaxHealth;
     }
 }
