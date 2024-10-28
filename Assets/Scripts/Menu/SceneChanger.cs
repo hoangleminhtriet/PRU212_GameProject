@@ -60,6 +60,7 @@ public class SceneChanger2D : MonoBehaviour
             // Chuyển scene
             LoadSceneManager.instance.LoadSceneByName(SceneLevel, () =>
 			{
+<<<<<<< Updated upstream
 				var gameManager = GameManagerScript.instance;
 
                 int currentLevel = GameManagerScript.instance.currentLevel;
@@ -70,6 +71,12 @@ public class SceneChanger2D : MonoBehaviour
 				var player = GameManagerScript.instance.playerController;
 				player.transform.position = transform.position = playerPos;
 				Debug.Log("Loadddddddd"+ playerPos);
+=======
+				newMap.text = "Arrive to new map " + SceneLevel;
+				newMap.gameObject.SetActive(true);
+				MessageOpen.gameObject.SetActive(false);
+				Debug.Log("Loadddddddd"+newMap.isActiveAndEnabled);
+>>>>>>> Stashed changes
 			});
 		}
 	}
@@ -85,14 +92,23 @@ public class SceneChanger2D : MonoBehaviour
 	private void KillEnemy(int currentEnemy)
 	{
 		isDoorCanOpen.Invoke(currentEnemy > 0);
-	}
+        totalEnemyKill.RemoveAllListeners();
+    }
 
 	private void OpenDoor(bool isOpen)
 	{
 		openDoor.SetActive (!isOpen);
 		closeDoor.SetActive (isOpen);
 		isDoorOpen = !isOpen;
+<<<<<<< Updated upstream
         GameManagerScript.instance.MessageOpen.gameObject.SetActive(!isOpen);
+=======
+		MessageOpen.gameObject.SetActive (isDoorOpen);
+	}
+	private void Start()
+	{
+		targetEnemy = LevelControllerScript.instance.totalEnemy;
+>>>>>>> Stashed changes
 	}
 	private void Update()
 	{
