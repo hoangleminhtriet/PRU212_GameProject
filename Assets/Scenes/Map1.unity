@@ -60770,6 +60770,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816011816}
   m_CullTransparentMesh: 1
+--- !u!1 &1854665738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8191343014608475794, guid: 926487de15197f7499c444b266a39e88,
+    type: 3}
+  m_PrefabInstance: {fileID: 2091798809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1854665740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854665738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bffe933efc9aa14b89a50fb49225493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordSwingSound: {fileID: 8300000, guid: 26e9b0607a7504b8ca6ae8b0b885ab08, type: 3}
 --- !u!1 &1880266050
 GameObject:
   m_ObjectHideFlags: 0
@@ -61076,7 +61095,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8191343014608475794, guid: 926487de15197f7499c444b266a39e88,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1854665740}
   m_SourcePrefab: {fileID: 100100000, guid: 926487de15197f7499c444b266a39e88, type: 3}
 --- !u!1 &2127686503
 GameObject:
