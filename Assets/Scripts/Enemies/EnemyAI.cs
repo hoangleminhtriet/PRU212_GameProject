@@ -9,8 +9,10 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private MonoBehaviour enemyType;
     [SerializeField] private float attackCooldown = 2f;
     [SerializeField] private bool stopMovingWhileAttacking = false;
+    [SerializeField] private AudioSource movementAudioSource;
 
     private bool canAttack = true;
+    private bool isMoving = false;
 
     private enum State
     {
@@ -61,6 +63,8 @@ public class EnemyAI : MonoBehaviour
 
         enemyPathfinding.MoveTo(roamPosition);
 
+        PlayMovementSound();
+
         if (Vector2.Distance(transform.position, Playercontroller.Instance.transform.position) < attackRange)
         {
             state = State.Attacking;
@@ -88,10 +92,12 @@ public class EnemyAI : MonoBehaviour
             if (stopMovingWhileAttacking)
             {
                 enemyPathfinding.StopMoving();
+                StopMovementSound(); 
             }
             else
             {
                 enemyPathfinding.MoveTo(roamPosition);
+                PlayMovementSound();
             }
 
             StartCoroutine(AttackCooldownRoutine());
@@ -108,5 +114,29 @@ public class EnemyAI : MonoBehaviour
     {
         timeRoaming = 0f;
         return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+    }
+
+    private void PlayMovementSound()
+    {
+        if (movementAudioSource != null && !movementAudioSource.isPlaying && isMoving == false)
+        {
+            movementAudioSource.Play();
+            isMoving = true;
+        }
+    }
+
+    private void StopMovementSound()
+    {
+        if (movementAudioSource != null && movementAudioSource.isPlaying && isMoving == true)
+        {
+            movementAudioSource.Stop();
+            isMoving = false;
+        }
+    }
+
+    public void Die()
+    {
+        StopMovementSound(); 
+        Destroy(gameObject);
     }
 }
