@@ -12,6 +12,7 @@ public class Playercontroller : MonoBehaviour
     [SerializeField] private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
     [SerializeField] private Transform weaponCollider;
+    [SerializeField] private AudioSource movementAudioSource; // Reference to the AudioSource for movement sound
 
     private PlayerController playerController;
     private Vector2 movement;
@@ -62,6 +63,21 @@ public class Playercontroller : MonoBehaviour
 
         myAnimator.SetFloat("moveX", movement.x);
         myAnimator.SetFloat("moveY", movement.y);
+        //add sound when player moverment
+        if (movement.magnitude > 0.1f)
+        {
+            if (!movementAudioSource.isPlaying)
+            {
+                movementAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (movementAudioSource.isPlaying)
+            {
+                movementAudioSource.Stop();
+            }
+        }
     }
 
     private void Move()
