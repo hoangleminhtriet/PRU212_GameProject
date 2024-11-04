@@ -18,6 +18,11 @@ public class PlayerHealth : MonoBehaviour
 
 	public Image healthBar;
 
+	public GameManagerScript gameManager;
+
+	private bool IsDead;
+    
+
 	private void Awake()
 	{
 		flash = GetComponent<Flash>();
@@ -65,5 +70,13 @@ public class PlayerHealth : MonoBehaviour
 	void UpdateHealthBar()
 	{
 		healthBar.fillAmount = CurrentHealth / MaxHealth;
+
+		if (CurrentHealth <= 0 && !IsDead)
+        {
+            gameManager.GameOver();
+			gameObject.SetActive(false);
+            IsDead = true;
+			Debug.Log("Dead");
+        }
 	}
 }
