@@ -42,6 +42,8 @@ public class Sword : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.isPaused) return;
+
         MouseFollowWithOffset();
         Attack();
     }

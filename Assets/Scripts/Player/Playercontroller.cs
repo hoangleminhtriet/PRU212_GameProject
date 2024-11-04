@@ -48,17 +48,21 @@ public class Playercontroller : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.isPaused) return;
         PlayerInput();
     }
 
     private void FixedUpdate()
     {
+        if (PauseMenu.isPaused) return;
         AdjustPlayerFacingDirection();
         Move();
     }
 
     private void PlayerInput()
     {
+        if (PauseMenu.isPaused) return;
+
         movement = playerController.Movement.Move.ReadValue<Vector2>();
 
         myAnimator.SetFloat("moveX", movement.x);
@@ -82,7 +86,7 @@ public class Playercontroller : MonoBehaviour
 
     private void Move()
     {
-        if (knockback.GettingKnockedBack) { return; }
+        if (PauseMenu.isPaused || knockback.GettingKnockedBack) { return; }
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
@@ -104,6 +108,7 @@ public class Playercontroller : MonoBehaviour
     }
     private void Dash()
     {
+        if (PauseMenu.isPaused) return;
         if (!isDashing)
         {
             isDashing = true;

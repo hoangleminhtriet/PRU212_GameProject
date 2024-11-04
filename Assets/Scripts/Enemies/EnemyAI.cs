@@ -39,6 +39,12 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.isPaused)
+        {
+            StopMovementSound();
+            return;
+        }
+
         MovementStateControl();
     }
 
