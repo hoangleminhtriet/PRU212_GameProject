@@ -1,64 +1,44 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 22f;
-    [SerializeField] private GameObject particleOnHitPrefabVFX;
-    [SerializeField] private bool isEnemyProjectile = false;
-    [SerializeField] private float projectileRange = 10f;
+    [SerializeField] private float speed = 5f; // Giảm tốc độ đạn xuống giá trị nhỏ hơn
+    [SerializeField] private int damage = 5; // Sát thương của viên đạn
+    public float lifetime = 5f;
 
-    private Vector3 startPosition;
+    private Vector2 direction;
 
     private void Start()
     {
-        startPosition = transform.position;
+        Destroy(gameObject, lifetime);
     }
 
     private void Update()
     {
-        MoveProjectile();
-        DetectFireDistance();
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 
-    public void UpdateProjectileRange(float projectileRange)
+    public void SetDirection(Vector2 newDirection)
     {
-        this.projectileRange = projectileRange;
+        direction = newDirection.normalized;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-        Indestructible indestructible = other.gameObject.GetComponent<Indestructible>();
-        PlayerHealth player = other.gameObject.GetComponent<PlayerHealth>();
-
-        if (!other.isTrigger && (enemyHealth || indestructible || player))
+        if (other.CompareTag("Player"))
         {
-            if ((player && isEnemyProjectile) || (enemyHealth && !isEnemyProjectile))
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
             {
-                player?.TakeDamage(1, transform);
-                Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
-                Destroy(gameObject);
+                playerHealth.TakeDamage(damage, transform);
             }
-            else if (!other.isTrigger && indestructible)
-            {
-                Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
-    }
-
-    private void DetectFireDistance()
-    {
-        if (Vector3.Distance(transform.position, startPosition) > projectileRange)
+        else if (other.CompareTag("Wall"))
         {
             Destroy(gameObject);
         }
-    }
-
-    private void MoveProjectile()
-    {
-        transform.Translate(Vector3.right * Time.deltaTime * moveSpeed);
     }
 }
