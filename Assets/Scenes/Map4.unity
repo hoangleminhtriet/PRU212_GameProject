@@ -86202,6 +86202,11 @@ PrefabInstance:
       propertyPath: hitAudioSource
       value: 
       objectReference: {fileID: 902670143}
+    - target: {fileID: 4980011232683503965, guid: afe66cfc7df7db1469ba9b557212e681,
+        type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5702681432179570300, guid: afe66cfc7df7db1469ba9b557212e681,
         type: 3}
       propertyPath: m_Name
@@ -87186,7 +87191,7 @@ Transform:
   m_GameObject: {fileID: 1288485559}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.08782, y: -9.0241375, z: -8.2177105}
+  m_LocalPosition: {x: -0.35995197, y: -8.769042, z: -8.2177105}
   m_LocalScale: {x: 1.4625, y: 2.4806252, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88848,6 +88853,11 @@ PrefabInstance:
       propertyPath: hitAudioSource
       value: 
       objectReference: {fileID: 902670143}
+    - target: {fileID: 4980011232683503965, guid: afe66cfc7df7db1469ba9b557212e681,
+        type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5702681432179570300, guid: afe66cfc7df7db1469ba9b557212e681,
         type: 3}
       propertyPath: m_Name

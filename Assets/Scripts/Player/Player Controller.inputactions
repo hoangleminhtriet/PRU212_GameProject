@@ -110,6 +110,17 @@
                 },
                 {
                     "name": "",
+                    "id": "39d69630-2e46-4905-975a-345818dd45ab",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "0cdbe3be-f5ad-4110-ada7-cbbe95dbadda",
                     "path": "<Keyboard>/space",
                     "interactions": "",
