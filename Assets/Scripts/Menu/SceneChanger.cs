@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Net.WebSockets;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneChanger2D : MonoBehaviour
@@ -65,12 +67,20 @@ public class SceneChanger2D : MonoBehaviour
         closeDoor.SetActive(isOpen);
         isDoorOpen = !isOpen;
         GameManagerScript.instance.MessageOpen.gameObject.SetActive(!isOpen);
-    }
-    private void Update()
+
+        string currentScene = SceneManager.GetActiveScene().name;
+        if(currentScene.CompareTo("Map4") == 0 )
+        {
+            Debug.Log(" (currentScene.CompareTo(\"Map4\") == 0");
+            var setting = GameObject.Find("PauseMenuPanel");
+            setting.SetActive(true);
+        }
+
+    } 
+        private void Update()
     {
         int currentEnemy = LevelControllerScript.instance.CurrentEnemy();
         KillEnemy(currentEnemy);
-
     }
 
 }

@@ -22,8 +22,9 @@ public class GameManagerScript : MonoBehaviour
 	public int currentLevel = 1;
     public Text MessageOpen;
     public Text newMap;
+    public RectTransform pauseDialog;
 
-	public UnityEvent newMapEvent =  new();
+    public UnityEvent newMapEvent =  new();
     private void OnEnable()
     {
         newMapEvent.AddListener(OnNewMap);

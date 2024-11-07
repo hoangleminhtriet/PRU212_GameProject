@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.UI;
 
 public class LevelControllerScript : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class LevelControllerScript : MonoBehaviour
 	{
 		totalEnemy = enemyParent.childCount;
 	}
-	public int CurrentEnemy()
+  
+    public int CurrentEnemy()
 	{
 		return enemyParent.childCount;
 	}
@@ -28,4 +30,5 @@ public class LevelControllerScript : MonoBehaviour
 	{
 		return currentLevel;
 	}
+	
 }
